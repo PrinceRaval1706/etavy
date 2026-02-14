@@ -2,10 +2,11 @@ import React from 'react';
 import {
   View,
   Text,
-  FlatList
+  FlatList,
+ StyleSheet
 } from 'react-native';
 
-import styles from '../styles/GlobalStyles';
+import styles from '../../styles/globalStyles';
 
 export default function History() {
 

@@ -1,31 +1,16 @@
-import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-
-// Your real screens
-import Home from '../screens/HomeScreen';
-import Chat from '../screens/Chat';
-import History from '../screens/History';
-import Profile from '../screens/Profile2';
+import HomeScreen from '../screens/user/HomeScreen';
+import MapScreen from '../screens/user/MapScreen';
+import HistoryScreen from '../screens/user/HistoryScreen';
 
 const Tab = createBottomTabNavigator();
 
 export default function BottomTabs() {
-
   return (
-    <Tab.Navigator
-      screenOptions={{
-        headerShown: false,
-        tabBarActiveTintColor: '#2196F3',
-        tabBarInactiveTintColor: 'gray',
-      }}
-    >
-
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Chat" component={Chat} />
-      <Tab.Screen name="History" component={History} />
-      <Tab.Screen name="Profile" component={Profile} />
-
+    <Tab.Navigator screenOptions={{ headerShown: false }}>
+      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Map" component={MapScreen} />
+      <Tab.Screen name="History" component={HistoryScreen} />
     </Tab.Navigator>
   );
 }

@@ -1,33 +1,31 @@
 import { StyleSheet } from 'react-native';
+import { colors } from './colors';
+
 
 export default StyleSheet.create({
-
   container: {
     flex: 1,
-    padding: 20,
-    backgroundColor: '#f2f2f2'
+    // backgroundImage does not exist in React Native styles. 
+    // You handle the image in the component itself.
   },
-
-  input: {
-    borderWidth: 1,
-    borderColor: '#ccc',
-    padding: 12,
-    borderRadius: 8,
-    marginVertical: 10,
-    backgroundColor: '#fff'
+  screen: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: colors.bg,
+    padding: 16, // This replaces paddingHorizontal/Vertical/Block for simplicity
   },
-
-  button: {
-    backgroundColor: '#2196F3',
-    padding: 15,
-    borderRadius: 8,
-    alignItems: 'center',
-    marginVertical: 10
+  card: {
+    backgroundColor: '#fff',
+    borderRadius: 16,
+    padding: 16,
+    marginVertical: 8,
+    // 'elevation' is Android only. 
+    // For iOS, you'd need shadowColor, shadowOpacity, etc.
+    elevation: 5, 
   },
-
-  buttonText: {
-    color: '#fff',
-    fontWeight: 'bold'
-  }
-
+  title: {
+    fontSize: 22,
+    fontWeight: '700',
+    color: colors.text,
+  },
 });

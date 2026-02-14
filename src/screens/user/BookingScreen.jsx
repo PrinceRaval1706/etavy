@@ -6,7 +6,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-import styles from '../styles/GlobalStyles';
+import styles from '../../styles/globalStyles';
 
 export default function Booking() {
 
