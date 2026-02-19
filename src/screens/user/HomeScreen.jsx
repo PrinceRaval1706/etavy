@@ -14,8 +14,8 @@ export default function HomeScreen({ navigation }) {
   return (
     <BackgroundLayout>
       <View style={globalStyles.screen}>
-        <Text style={globalStyles.title}>Services</Text>
-
+        <Text style={[globalStyles.title, { textAlign: 'center' }]}> Pick your </Text>
+          <Text style={[globalStyles.title, { textAlign: 'center' }]}> Service </Text>
         <FlatList
           data={services}
           numColumns={2}

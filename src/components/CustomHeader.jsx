@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
   },
   container: {
     height: 60,
-    backgroundColor: '#fff',
+    backgroundColor: '#003366',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
   logo: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#2563EB',
+    color: '#faf7f7',
   },
   rightSection: {
     flexDirection: 'row',
