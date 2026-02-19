@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { View, Text, StyleSheet, ImageBackground, SafeAreaView, StatusBar } from 'react-native';
-import Input from '../../components/Input';
+import Input from '../../components/input';
 import AppButton from '../../components/AppButton';
 import { AuthContext } from '../../context/AuthContext';
 import backgroundImage from '../../assets/images/Etavy light.jpg';

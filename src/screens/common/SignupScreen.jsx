@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { View, Text } from 'react-native';
-import Input from '../../components/Input';
+import Input from '../../components/input';
 import AppButton from '../../components/AppButton';
 
 import { AuthContext } from '../../context/AuthContext';
-import styles from '../../styles/globalStyles';
+import styles from '../../styles/GlobalStyles';
 
 export default function SignupScreen() {
   const { login } = useContext(AuthContext);
