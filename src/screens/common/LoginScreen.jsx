@@ -7,6 +7,7 @@ import {
   SafeAreaView,
   StatusBar
 } from 'react-native';
+
 import Input from '../../components/Input';
 import AppButton from '../../components/AppButton';
 import { AuthContext } from '../../context/AuthContext';
@@ -22,7 +23,7 @@ export default function LoginScreen({ navigation }) {
   // 2 = otp verification
 
   const handleGenerateOtp = () => {
-    const fakeOtp = '1234'; // Replace with backend later
+    const fakeOtp = '1234'; // Replace with real backend OTP later
     setGeneratedOtp(fakeOtp);
     setStep(2);
   };
@@ -39,6 +40,7 @@ export default function LoginScreen({ navigation }) {
     <ImageBackground
       source={backgroundImage}
       style={localStyles.background}
+      resizeMode="cover"
     >
       <StatusBar barStyle="dark-content" />
 
@@ -50,7 +52,11 @@ export default function LoginScreen({ navigation }) {
           {step === 1 && (
             <>
               <Input placeholder="Email" style={localStyles.input} />
-              <Input placeholder="Password" secureTextEntry style={localStyles.input} />
+              <Input
+                placeholder="Password"
+                secureTextEntry
+                style={localStyles.input}
+              />
 
               <View style={localStyles.buttonContainer}>
                 <AppButton
@@ -113,7 +119,7 @@ const localStyles = StyleSheet.create({
   },
   card: {
     width: '85%',
-    backgroundColor: 'rgba(255, 255, 255, 0.85)',
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
     padding: 25,
     borderRadius: 20,
     elevation: 8,
@@ -139,12 +145,5 @@ const localStyles = StyleSheet.create({
   },
   buttonContainer: {
     marginTop: 15,
-  },
-  buttonStyle: {
-    backgroundColor: '#01f891',
-    borderRadius: 10,
-    paddingVertical: 12,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });

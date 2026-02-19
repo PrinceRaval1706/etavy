@@ -1,21 +1,35 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import AppButton from '../../components/AppButton';
-import styles from '../../styles/globalStyles';
+import { View, Text, StyleSheet, Image } from 'react-native';
 
-export default function ProProfileScreen({ navigation }) {
+export default function ProfileScreen() {
   return (
-    <View style={styles.screen}>
-      <Text style={styles.title}>Ravi – Plumber</Text>
-
-      <View style={styles.card}>
-        <Text>⭐ 4.8 Rating</Text>
-        <Text>📍 2.1 km away</Text>
-        <Text>💰 ₹300/hr</Text>
-      </View>
-
-      <AppButton title="Book Now" onPress={() => navigation.navigate('Booking')} />
-      <AppButton title="🎙 Voice Book" onPress={() => navigation.navigate('VoiceBooking')} />
+    <View style={styles.container}>
+      <Image
+        source={{ uri: 'https://i.pravatar.cc/150' }}
+        style={styles.image}
+      />
+      <Text style={styles.name}>Your Name</Text>
+      <Text>Email: example@email.com</Text>
+      <Text>Phone: 9876543210</Text>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    padding: 20,
+    backgroundColor: '#F8FAFC',
+  },
+  image: {
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+    marginBottom: 20,
+  },
+  name: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+});
