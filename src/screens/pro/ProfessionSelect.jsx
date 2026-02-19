@@ -7,10 +7,11 @@ import {
   StyleSheet,
   ScrollView
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import AppButton from '../../components/AppButton';
+import Input from '../../components/Input'; // ✅ FIXED
 import { colors } from '../../styles/colors';
 import { spacing } from '../../styles/spacing';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 const professions = [
   'Doctor',
@@ -26,6 +27,11 @@ export default function ProfessionSelect({ navigation }) {
   const [charge, setCharge] = useState('');
   const [phone, setPhone] = useState('');
   const [location, setLocation] = useState('');
+
+  // ✅ FIXED: Added missing function
+  const handleUseCurrentLocation = () => {
+    setLocation('Ahmedabad, Gujarat'); // Dummy location for now
+  };
 
   const handleNext = () => {
     navigation.navigate('Docs', {
@@ -74,11 +80,20 @@ export default function ProfessionSelect({ navigation }) {
           style={styles.input}
         />
 
-        <TextInput
-          placeholder="Location / Address"
+        {/* Location Section */}
+        <Text style={styles.sectionTitle}>Your Location</Text>
+
+        <TouchableOpacity
+          style={styles.locationButton}
+          onPress={handleUseCurrentLocation}
+        >
+          <Text style={styles.locationText}>📍 Use Current Location</Text>
+        </TouchableOpacity>
+
+        <Input
+          placeholder="Enter your address manually"
           value={location}
           onChangeText={setLocation}
-          style={styles.input}
         />
 
         <AppButton title="Continue" onPress={handleNext} />
@@ -120,5 +135,23 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginVertical: spacing.sm,
     elevation: 2,
+  },
+
+  // ✅ Added missing styles
+  sectionTitle: {
+    marginTop: spacing.md,
+    marginBottom: spacing.sm,
+    fontWeight: '600',
+    fontSize: 16,
+  },
+  locationButton: {
+    backgroundColor: '#E0F2FE',
+    padding: spacing.sm,
+    borderRadius: 10,
+    marginBottom: spacing.sm,
+  },
+  locationText: {
+    color: colors.primary,
+    fontWeight: '600',
   },
 });
