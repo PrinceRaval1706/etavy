@@ -6,27 +6,31 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function CustomHeader({ navigation }) {
 
-  // 🔴 Example notification count (later connect to backend)
   const notificationCount = 3;
   const { isDarkMode } = useContext(AuthContext);
 
-const backgroundColor = isDarkMode ? '#0F172A' : '#1E3A8A';
-const textColor = '#FFFFFF';
+  const backgroundColor = isDarkMode ? '#0F172A' : '#1E3A8A';
+  const iconColor = '#FFFFFF';
+  const textColor = '#FFFFFF';
 
   return (
-    <SafeAreaView edges={['top']} style={styles.safeArea}>
+    <SafeAreaView edges={['top']} style={{ backgroundColor }}>
       <View style={[styles.container, { backgroundColor }]}>
-        {/* Company Name */}
-        <Text style={[styles.logo, { color: textColor }]}>Etvay</Text>
 
+        {/* Company Name */}
+        <Text style={[styles.logo, { color: textColor }]}>
+          Etvay
+        </Text>
+
+        {/* Right Section */}
         <View style={styles.rightSection}>
 
           {/* Search */}
           <TouchableOpacity
             onPress={() => navigation.navigate('Search')}
-            style={styles.icon}
+            style={styles.iconWrapper}
           >
-            <Icon name="search-outline" size={22} color="#000" />
+            <Icon name="search-outline" size={22} color={iconColor} />
           </TouchableOpacity>
 
           {/* Notification */}
@@ -34,9 +38,8 @@ const textColor = '#FFFFFF';
             onPress={() => navigation.navigate('Notifications')}
             style={styles.iconWrapper}
           >
-            <Icon name="notifications-outline" size={22} color="#000" />
+            <Icon name="notifications-outline" size={22} color={iconColor} />
 
-            {/* 🔴 Badge */}
             {notificationCount > 0 && (
               <View style={styles.badge}>
                 <Text style={styles.badgeText}>
@@ -46,7 +49,7 @@ const textColor = '#FFFFFF';
             )}
           </TouchableOpacity>
 
-          {/* Profile Image */}
+          {/* Profile */}
           <TouchableOpacity
             onPress={() => navigation.navigate('Profile')}
           >
@@ -63,29 +66,21 @@ const textColor = '#FFFFFF';
 }
 
 const styles = StyleSheet.create({
-  safeArea: {
-    backgroundColor: '#fff',
-  },
   container: {
     height: 60,
-    backgroundColor: '#003366',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 16,
-    elevation: 4,
+    elevation: 6,
   },
   logo: {
     fontSize: 20,
-    fontWeight: 'bold',
-    color: '#faf7f7',
+    fontWeight: '700',
   },
   rightSection: {
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  icon: {
-    marginRight: 18,
   },
   iconWrapper: {
     marginRight: 18,
@@ -94,7 +89,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: -6,
     top: -4,
-    backgroundColor: 'red',
+    backgroundColor: '#EF4444',
     borderRadius: 10,
     minWidth: 16,
     height: 16,
@@ -108,8 +103,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   profileImage: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
+    width: 34,
+    height: 34,
+    borderRadius: 17,
   },
 });

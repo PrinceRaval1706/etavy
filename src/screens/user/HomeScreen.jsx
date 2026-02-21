@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import BackgroundLayout from '../../components/BackgroundLayout';
 import globalStyles from '../../styles/globalStyles';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const services = [
   { id: '1', name: 'Plumber' },

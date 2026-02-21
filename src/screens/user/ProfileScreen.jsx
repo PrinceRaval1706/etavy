@@ -53,20 +53,20 @@ export default function ProfileScreen({ navigation }) {
           </Text>
         </View>
 
-        {/* USER INFO CARD */}
+        {/* INFO CARD */}
         <View style={[styles.card, { backgroundColor: theme.card }]}>
           <ProfileItem icon="mail-outline" label="Email" value={user.email} theme={theme} />
           <ProfileItem icon="call-outline" label="Phone" value={user.phone} theme={theme} />
           <ProfileItem icon="location-outline" label="Location" value={user.location} theme={theme} />
         </View>
 
-        {/* WALLET CARD */}
+        {/* WALLET */}
         <View style={[styles.card, { backgroundColor: theme.card }]}>
           <ProfileItem icon="wallet-outline" label="Wallet Balance" value={user.wallet} theme={theme} />
           <ProfileItem icon="time-outline" label="Wallet History" onPress={() => navigation.navigate('WalletHistory')} theme={theme} />
         </View>
 
-        {/* ACTION CARD */}
+        {/* ACTIONS */}
         <View style={[styles.card, { backgroundColor: theme.card }]}>
           <ProfileItem icon="create-outline" label="Edit Profile" onPress={() => navigation.navigate('EditProfile')} theme={theme} />
           <ProfileItem icon="lock-closed-outline" label="Change Password" onPress={() => navigation.navigate('ChangePassword')} theme={theme} />
@@ -76,7 +76,7 @@ export default function ProfileScreen({ navigation }) {
           )}
         </View>
 
-        {/* DARK MODE TOGGLE */}
+        {/* DARK MODE */}
         <View style={[styles.card, { backgroundColor: theme.card }]}>
           <View style={styles.row}>
             <Text style={{ color: theme.text }}>Dark Mode</Text>
@@ -100,36 +100,31 @@ export default function ProfileScreen({ navigation }) {
 function ProfileItem({ icon, label, value, onPress, theme }) {
   return (
     <TouchableOpacity
+      style={styles.itemRow}
       onPress={onPress}
-      style={styles.row}
-      activeOpacity={0.7}
+      disabled={!onPress}
     >
-      <View style={styles.row}>
-        <Icon name={icon} size={20} color={theme.primary} />
-        <Text style={{ marginLeft: 12, color: theme.text, fontSize: 14 }}>
+      <Icon name={icon} size={22} color={theme.primary} />
+
+      <View style={{ marginLeft: 12, flex: 1 }}>
+        <Text style={[styles.itemLabel, { color: theme.text }]}>
           {label}
         </Text>
+
+        {value && (
+          <Text style={[styles.itemValue, { color: theme.subText }]}>
+            {value}
+          </Text>
+        )}
       </View>
-      {value && (
-        <Text style={{ color: theme.subText, fontSize: 13 }}>
-          {value}
-        </Text>
-      )}
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-  },
-  container: {
-    padding: 20,
-  },
-  profileSection: {
-    alignItems: 'center',
-    marginBottom: 25,
-  },
+  safeArea: { flex: 1 },
+  container: { padding: 20 },
+  profileSection: { alignItems: 'center', marginBottom: 25 },
   profileImage: {
     width: 110,
     height: 110,
@@ -138,25 +133,23 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderColor: '#1E3A8A',
   },
-  name: {
-    fontSize: 20,
-    fontWeight: '700',
-  },
-  role: {
-    fontSize: 13,
-    marginTop: 4,
-  },
+  name: { fontSize: 20, fontWeight: '700' },
+  role: { fontSize: 13, marginTop: 4 },
   card: {
     borderRadius: 18,
     padding: 18,
     marginBottom: 18,
     elevation: 4,
   },
+  itemRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 12,
+  },
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 10,
   },
   logoutBtn: {
     padding: 16,
