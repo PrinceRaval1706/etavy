@@ -1,25 +1,30 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import HomeScreen from '../screens/user/HomeScreen';
 import HistoryScreen from '../screens/user/HistoryScreen';
-import ProfileScreen from '../screens/user/ProProfileScreen';
 import CustomHeader from '../components/CustomHeader';
+import ProfileScreen from '../screens/user/ProfileScreen';
+import { AuthContext } from '../context/AuthContext';
 
 const Tab = createBottomTabNavigator();
 
 export default function BottomTabs() {
+  const { isDarkMode } = useContext(AuthContext);
+
   return (
     <Tab.Navigator
-      screenOptions={{
-        header: () => <CustomHeader />,
-        tabBarActiveTintColor: '#2563EB',
+      screenOptions={({ navigation }) => ({
+        header: () => <CustomHeader navigation={navigation} />,
         tabBarStyle: {
           height: 60,
           paddingBottom: 5,
+          backgroundColor: isDarkMode ? '#111827' : '#FFFFFF',
         },
-      }}
+        tabBarActiveTintColor: '#2563EB',
+        tabBarInactiveTintColor: isDarkMode ? '#9CA3AF' : '#64748B',
+      })}
     >
       <Tab.Screen
         name="Home"

@@ -13,12 +13,16 @@ export default function CustomHeader({ navigation }) {
 
   // 🔴 Example notification count (later connect to backend)
   const notificationCount = 3;
+  const { isDarkMode } = useContext(AuthContext);
+
+const backgroundColor = isDarkMode ? '#0F172A' : '#1E3A8A';
+const textColor = '#FFFFFF';
 
   return (
     <SafeAreaView edges={['top']} style={styles.safeArea}>
-      <View style={styles.container}>
+      <View style={[styles.container, { backgroundColor }]}>
         {/* Company Name */}
-        <Text style={styles.logo}>Etvay</Text>
+        <Text style={[styles.logo, { color: textColor }]}>Etvay</Text>
 
         <View style={styles.rightSection}>
 

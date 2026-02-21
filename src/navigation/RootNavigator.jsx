@@ -1,22 +1,18 @@
-import React, { useContext } from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { AuthContext } from '../context/AuthContext';
+import React from 'react';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 import AuthStack from './AuthStack';
 import UserStack from './UserStack';
 import ProStack from './ProStack';
 
-export default function RootNavigator() {
-  const { user, role } = useContext(AuthContext);
+const Stack = createNativeStackNavigator();
 
+export default function RootNavigator() {
   return (
-    <NavigationContainer>
-      {!user ? (
-        <AuthStack />
-      ) : role === 'user' ? (
-        <UserStack />
-      ) : (
-        <ProStack />
-      )}
-    </NavigationContainer>
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Auth" component={AuthStack} />
+      <Stack.Screen name="User" component={UserStack} />
+      <Stack.Screen name="Pro" component={ProStack} />
+    </Stack.Navigator>
   );
 }

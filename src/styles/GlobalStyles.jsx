@@ -3,6 +3,7 @@ import { colors } from './colors';
 
 
 export default StyleSheet.create({
+  
   container: {
     flex: 1,
     // backgroundImage does not exist in React Native styles. 
