@@ -5,18 +5,24 @@ import globalStyles from '../../styles/globalStyles';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const services = [
-  { id: '1', name: 'Plumber' },
-  { id: '2', name: 'Electrician' },
-  { id: '3', name: 'Mechanic' },
-  { id: '4', name: 'Carpenter' }
+  { id: '1', name: 'Plumber', icon: 'water-outline' },
+  { id: '2', name: 'Electrician', icon: 'flash-outline' },
+  { id: '3', name: 'Mechanic', icon: 'car-outline' },
+  { id: '4', name: 'Carpenter', icon: 'hammer-outline' },
 ];
 
 export default function HomeScreen({ navigation }) {
   return (
     <BackgroundLayout>
       <View style={globalStyles.screen}>
-        <Text style={[globalStyles.title, { textAlign: 'center' }]}> Pick your </Text>
-          <Text style={[globalStyles.title, { textAlign: 'center' }]}> Service </Text>
+        
+        <Text style={[globalStyles.title, { textAlign: 'center' }]}>
+          Pick your
+        </Text>
+        <Text style={[globalStyles.title, { textAlign: 'center' }]}>
+          Service
+        </Text>
+
         <FlatList
           data={services}
           numColumns={2}
@@ -30,11 +36,24 @@ export default function HomeScreen({ navigation }) {
                   flex: 0.48,
                   alignItems: 'center',
                   justifyContent: 'center',
-                  height: 100,
+                  height: 120,
                 },
               ]}
-              onPress={() => navigation.navigate('Nearby')}
+              onPress={() =>
+                navigation.navigate('Professionals', {
+                  category: item.name,
+                })
+              }
             >
+              {/* Icon */}
+              <Icon
+                name={item.icon}
+                size={28}
+                color="#1E3A8A"
+                style={{ marginBottom: 8 }}
+              />
+
+              {/* Service Name */}
               <Text style={{ fontWeight: '600', fontSize: 16 }}>
                 {item.name}
               </Text>

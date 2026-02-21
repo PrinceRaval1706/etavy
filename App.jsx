@@ -1,9 +1,8 @@
-
 import React, { useContext } from 'react';
 import {
   NavigationContainer,
   DefaultTheme,
-  DarkTheme
+  DarkTheme,
 } from '@react-navigation/native';
 
 import { AuthProvider, AuthContext } from './src/context/AuthContext';
