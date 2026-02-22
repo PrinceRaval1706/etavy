@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AppButton from '../../components/AppButton';
-import Input from '../../components/Input'; // ✅ FIXED
+import Input from '../../components/input'; // ✅ FIXED
 import { colors } from '../../styles/colors';
 import { spacing } from '../../styles/spacing';
 

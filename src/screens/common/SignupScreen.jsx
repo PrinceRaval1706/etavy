@@ -9,7 +9,7 @@ import {
   SafeAreaView,
   StatusBar
 } from 'react-native';
-import Input from '../../components/Input';
+import Input from '../../components/input';
 import AppButton from '../../components/AppButton';
 import { AuthContext } from '../../context/AuthContext';
 import { colors } from '../../styles/colors';

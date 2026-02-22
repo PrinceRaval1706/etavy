@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import styles from '../../styles/globalStyles';
+import styles from '../../styles/GlobalStyles';
 
 export default function History() {
 

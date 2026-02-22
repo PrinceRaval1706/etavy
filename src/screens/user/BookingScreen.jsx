@@ -8,7 +8,7 @@ import {
   ScrollView
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import styles from '../../styles/globalStyles';
+import styles from '../../styles/GlobalStyles';
 
 export default function Booking({ navigation, route }) {
 
