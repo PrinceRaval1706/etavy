@@ -55,6 +55,10 @@ export default function ProfessionalsListScreen({ route, navigation }) {
             <Text>⭐ {item.rating}</Text>
             <Text>📍 {item.location}</Text>
             <Text>₹ {item.price}/visit</Text>
+            <Tab.Screen
+   name="Tracking"
+   component={TrackingScreen}
+/>
 
             <View style={styles.buttonRow}>
               <TouchableOpacity
