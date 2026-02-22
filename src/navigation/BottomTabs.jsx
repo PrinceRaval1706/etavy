@@ -35,6 +35,15 @@ export default function BottomTabs() {
           ),
         }}
       />
+      <Tab.Screen
+        name="Tracking"
+        component={TrackingScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="navigate-outline" size={size} color={color} />
+          ),
+        }}
+      />
 
       <Tab.Screen
         name="History"
