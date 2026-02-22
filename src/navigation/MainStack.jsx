@@ -7,6 +7,9 @@ import ProfessionalDetailsScreen from '../screens/user/ProfessionalDetailsScreen
 import Booking from '../screens/user/Booking';
 import Payment from '../screens/user/Payment';
 import Chat from '../screens/user/Chat';
+import TrackingScreen from '../screens/user/TrackingScreen';
+
+
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +24,10 @@ export default function MainStack() {
       <Stack.Screen name="Booking" component={Booking} />
       <Stack.Screen name="Payment" component={Payment} />
       <Stack.Screen name="Chat" component={Chat} />
+      <Stack.Screen
+  name="Tracking"
+  component={TrackingScreen}
+/>
 
     </Stack.Navigator>
   );
