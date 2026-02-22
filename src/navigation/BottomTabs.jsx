@@ -7,6 +7,7 @@ import HistoryScreen from '../screens/user/HistoryScreen';
 import ProfileScreen from '../screens/user/ProfileScreen';
 import CustomHeader from '../components/CustomHeader';
 import { AuthContext } from '../context/AuthContext';
+import TrackingScreen from '../screens/user/TrackingScreen';
 
 const Tab = createBottomTabNavigator();
 
