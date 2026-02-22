@@ -1,6 +1,10 @@
-import React from 'react';
-import AppNavigator from './src/navigation/AppNavigator';
+import axios from 'axios';
 
-export default function App() {
-  return <AppNavigator />;
-}
+const API = axios.create({
+  baseURL: 'https://etavy-backend.onrender.com/api',
+  headers: {
+    'Content-Type': 'application/json'
+  }
+});
+
+export default API;

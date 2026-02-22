@@ -1,7 +1,9 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import AppButton from '../../components/AppButton';
-import styles from '../../styles/globalStyles';
+import styles from '../../styles/GlobalStyles';
+
+
 
 export default function ProProfileScreen({ navigation }) {
   return (

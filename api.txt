@@ -1,0 +1,442 @@
+
+This is your final backend contract 📦
+
+---
+
+# 🔐 AUTH MODULE
+
+---
+ 
+### 1️⃣ Register
+
+`POST /api/auth/register`
+
+```json
+{
+  "name": "Bhavy Patel",
+  "phone": "7016273019",
+  "email": "bhavy@gmail.com",
+  "password": "1234",
+  "role": "USER"
+}
+```
+
+---
+
+### 2️⃣ Verify OTP
+
+`POST /api/auth/verify-otp`
+
+```json
+{
+  "phone": "7016273019",
+  "otp": "123456"
+}
+```
+
+---
+
+### 3️⃣ Resend OTP
+
+`POST /api/auth/resend-otp`
+
+```json
+{
+  "phone": "7016273019"
+}
+```
+
+---
+
+### 4️⃣ Login
+
+`POST /api/auth/login`
+
+```json
+{
+  "phone": "7016273019",
+  "password": "1234"
+}
+```
+
+---
+
+# 👤 USER MODULE (Auth Required)
+
+---
+
+### 5️⃣ Get Profile
+
+`GET /api/user/me`
+
+(no body)
+
+---
+
+### 6️⃣ Update Profile
+
+`PUT /api/user/update`
+
+```json
+{
+  "name": "Bhavy P Patel",
+  "email": "bhavy@etavy.com"
+}
+```
+
+---
+
+### 7️⃣ Change Password
+
+`PUT /api/user/change-password`
+
+```json
+{
+  "oldPassword": "1234",
+  "newPassword": "5678"
+}
+```
+
+---
+
+### 8️⃣ Get Roles
+
+`GET /api/user/roles`
+
+---
+
+# 📍 ADDRESS MODULE
+
+---
+
+### 9️⃣ Add Address
+
+`POST /api/address`
+
+```json
+{
+  "lat": 22.3039,
+  "lng": 70.8022,
+  "city": "Rajkot",
+  "pincode": "360001"
+}
+```
+
+---
+
+### 🔟 Get Addresses
+
+`GET /api/address`
+
+---
+
+### 1️⃣1️⃣ Delete Address
+
+`DELETE /api/address/:id`
+
+---
+
+# 👨‍🔧 PROFESSIONAL MODULE
+
+---
+
+### 1️⃣2️⃣ Apply Professional
+
+`POST /api/professional/apply`
+
+```json
+{
+  "bio": "5 years electrician experience",
+  "experience_years": 5,
+  "category_ids": [1],
+  "service_city": "Rajkot",
+  "radius_km": 15
+}
+```
+
+---
+
+### 1️⃣3️⃣ Upload Document
+
+`POST /api/professional/document`
+
+(Form-data)
+
+```
+document_type: AADHAR
+file: image file
+```
+
+---
+
+### 1️⃣4️⃣ Get Professional Profile
+
+`GET /api/professional/me`
+
+---
+
+### 1️⃣5️⃣ Professional Status
+
+`GET /api/professional/status`
+
+---
+
+# 🏷️ CATEGORY MODULE
+
+---
+
+### 1️⃣6️⃣ Get Categories
+
+`GET /api/categories`
+
+---
+
+### 1️⃣7️⃣ Admin Add Category
+
+`POST /api/admin/category`
+
+```json
+{
+  "name": "Electrician",
+  "parent_id": null
+}
+```
+
+---
+
+# 🔍 SEARCH MODULE
+
+---
+
+### 1️⃣8️⃣ Search Professionals
+
+`GET /api/search?city=Rajkot&category=Electrician`
+
+---
+
+# 📅 BOOKING MODULE
+
+---
+
+### 1️⃣9️⃣ Create Booking
+
+`POST /api/bookings/create`
+
+```json
+{
+  "professional_id": "uuid",
+  "category_id": 1,
+  "scheduled_at": "2026-02-22T10:30:00",
+  "price": 300,
+  "is_urgent": false
+}
+```
+
+---
+
+### 2️⃣0️⃣ Accept Booking (Professional)
+
+`POST /api/professional/job/:id/accept`
+
+---
+
+### 2️⃣1️⃣ Reject Booking (Professional)
+
+`POST /api/professional/job/:id/reject`
+
+```json
+{
+  "reason": "Not available"
+}
+```
+
+---
+
+### 2️⃣2️⃣ Start Booking (OTP)
+
+`POST /api/professional/job/:id/start`
+
+```json
+{
+  "otp": "4567"
+}
+```
+
+---
+
+### 2️⃣3️⃣ Complete Booking
+
+`POST /api/professional/job/:id/complete`
+
+---
+
+### 2️⃣4️⃣ My Bookings
+
+`GET /api/bookings/my`
+
+---
+
+### 2️⃣5️⃣ Cancel Booking
+
+`POST /api/bookings/:id/cancel`
+
+```json
+{
+  "reason": "Plan changed"
+}
+```
+
+---
+
+### 2️⃣6️⃣ Reschedule Booking
+
+`POST /api/bookings/:id/reschedule`
+
+```json
+{
+  "new_time": "2026-02-25T12:00:00"
+}
+```
+
+---
+
+# 💬 CHAT MODULE
+
+---
+
+### 2️⃣7️⃣ Send Message
+
+`POST /api/chat/message`
+
+```json
+{
+  "booking_id": "uuid",
+  "message": "I am arriving in 10 minutes",
+  "type": "TEXT"
+}
+```
+
+---
+
+### 2️⃣8️⃣ Get Messages
+
+`GET /api/chat/:bookingId`
+
+---
+
+# ⭐ REVIEW MODULE
+
+---
+
+### 2️⃣9️⃣ Add Review
+
+`POST /api/review`
+
+```json
+{
+  "booking_id": "uuid",
+  "rating": 5,
+  "comment": "Very professional service"
+}
+```
+
+---
+
+### 3️⃣0️⃣ Get Reviews
+
+`GET /api/review/:professionalId`
+
+---
+
+# 💰 PAYMENT MODULE
+
+---
+
+### 3️⃣1️⃣ Create Order
+
+`POST /api/payment/create-order`
+
+```json
+{
+  "booking_id": "uuid"
+}
+```
+
+---
+
+### 3️⃣2️⃣ Verify Payment
+
+`POST /api/payment/verify`
+
+```json
+{
+  "booking_id": "uuid"
+}
+```
+
+---
+
+# ⚖️ DISPUTE MODULE
+
+---
+
+### 3️⃣3️⃣ Raise Dispute
+
+`POST /api/disputes/create`
+
+```json
+{
+  "booking_id": "uuid",
+  "reason": "Overcharged amount"
+}
+```
+
+---
+
+# 🛡️ ADMIN MODULE
+
+---
+
+### 3️⃣4️⃣ Pending Professionals
+
+`GET /api/admin/professionals/pending`
+
+---
+
+### 3️⃣5️⃣ Approve Professional
+
+`PATCH /api/admin/professional/:id/approve`
+
+---
+
+### 3️⃣6️⃣ Reject Professional
+
+`PATCH /api/admin/professional/:id/reject`
+
+---
+
+# 🎯 FINAL TOTAL
+
+You actually now have:
+
+### 🔥 36 APIs
+
+(Not 32 — because booking expanded + admin endpoints expanded)
+
+---
+
+# 🏆 Your Marketplace Backend Is Fully Functional
+
+This is:
+
+* Multi-role
+* OTP secured
+* Booking lifecycle managed
+* Payment lifecycle managed
+* Review controlled
+* Admin moderated
+* Dispute enabled
+* Chat enabled
+
+---
+
